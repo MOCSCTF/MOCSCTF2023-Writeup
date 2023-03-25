@@ -1,0 +1,12 @@
+FROM python:3.8.10
+MAINTAINER Dian_Zh
+COPY src/app.py /app/app.py
+COPY src/secret.py /app/secret.py
+COPY start.sh /root/start.sh
+COPY flag /flag
+RUN pip install flask -i http://pypi.douban.com/simple --trusted-host pypi.douban.com \
+    && chmod -R 777 /app \
+    && chmod +x /flag \
+    && chmod +x /root/start.sh
+ENTRYPOINT cd /root; ./start.sh
+EXPOSE 5000

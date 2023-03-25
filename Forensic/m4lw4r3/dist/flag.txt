@@ -1,0 +1,1 @@
+MOCSCTF{malicous_powershell_command}

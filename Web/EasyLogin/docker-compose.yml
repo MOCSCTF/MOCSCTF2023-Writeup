@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+      web:
+            build: .
+            ports:
+                - 48010:8080
+            stdin_open: true
+            tty: true
+            volumes:
+                - ./src:/var/www/html
+                - ./logs:/var/log/apache2

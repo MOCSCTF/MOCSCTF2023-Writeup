@@ -1,0 +1,20 @@
+Mona_Lisa:
+
+Challenge:
+My dad said this Mona Lisa has some high secret inside. But however I observe the picture again and again, nothing strange was found. Maybe my dad just scare me?
+
+Flag:
+flag1=MOCSCTF{h1de_@nd
+flag2=_5eek_15_funny_
+flag3=2022_t0_2023}
+
+So the flag is: MOCSCTF{h1de_@nd_5eek_15_funny_2022_t0_2023}
+
+Solution:
+1. Use exiftool to get flag1 under metadata.
+2. Use https://stylesuxx.github.io/steganography/ to get flag2 hidden in LSB.
+3. Use pngcheck with -v to check the png file, see the last IDAT chunk is very small, which is suspicious. Use hexeditor to check the last IDAT chunk, get flag3.
+4. Combine the 3 segments of flags together to get the whole flag.
+
+
+

@@ -1,0 +1,15 @@
+FROM openjdk:8
+WORKDIR /app
+COPY src/SSH-connector.jar /app
+COPY flag /flag
+COPY readflag /readflag
+RUN chmod 0400 /flag
+RUN chmod 4555 /readflag
+RUN mkdir /app/files
+RUN chmod a=xwr /app/files
+RUN groupadd -r web && useradd -r -g web web
+
+USER web
+
+ENV basedir=/app/files/
+CMD ["java", "-jar", "SSH-connector.jar"]

@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+      web:
+            restart: always
+            build: .
+            ports:
+                - 48013:8080
+            stdin_open: true
+            tty: true
+            volumes:
+                - ./src:/app
+                - ./log:/var/log/apache2
